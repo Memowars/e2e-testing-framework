@@ -1,12 +1,7 @@
-Feature: Search Input
+Feature: Movie Details Page
 
-  Scenario Outline: As a user, I should be able to search by Category
+  Scenario: Navigate and search the "Batman Movie"
     Given I am on the home page
-    When on the navbar I select category "<Category>"
-    Then I should see the category dropdown now matches "<Category>"
+    And on the navbar I search "The Batman"
 
-    Examples:
-      | Category    |
-      | All         | 
-      | Titles      |
-      | TV Episodes |
+
