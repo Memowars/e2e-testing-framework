@@ -14,8 +14,12 @@ Given(/^I am on the (\w+) page$/,
 When(/^on the navbar I select category "(All|Titles|TV Episodes)"$/, 
     async (category) => await NavBar.searchBar.selectCategory(category));
 
-When(/^on the navbar I search "(The Batman)"$/, (movie)=> {
-    MovieList.rowHyperlink(movie);
+When(/^on the navbar I search "(The Batman)"$/, async (movie) => {
+    const result =  MovieList.rowHyperlink(movie);
+    const searchInput = NavBar.searchBar.input;
+    await searchInput.addValue(movie);
+    const searchSubmit = NavBar.searchBar.mag;
+    await searchSubmit.click()
 });
 
 Then(/^I should see the category dropdown now matches "(All|Titles|TV Episodes)"$/, 
