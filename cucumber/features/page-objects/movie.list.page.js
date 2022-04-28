@@ -1,15 +1,15 @@
 class MovieList { 
     
-    constructor(tableId = 1) {
-        this.parentLocator = `.find-section:nth-of-child(${tableId})`;
+    constructor() {
+        this.parentLocator = `.findSection .findList tr`;
     }
 
     get bottomLink() {
         return $('....')
     }
 
-    rowHyperlink(text) {
-        return $(this.parentLocator).$(`.result_text=${text}`);
+    rowHyperlink() {
+        return $(this.parentLocator).$(`.result_text`);
     }
 }
 

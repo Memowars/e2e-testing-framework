@@ -15,11 +15,18 @@ When(/^on the navbar I select category "(All|Titles|TV Episodes)"$/,
     async (category) => await NavBar.searchBar.selectCategory(category));
 
 When(/^on the navbar I search "(The Batman)"$/, async (movie) => {
-    const result =  MovieList.rowHyperlink(movie);
+    // const result =  MovieList.rowHyperlink(movie);
     const searchInput = NavBar.searchBar.input;
     await searchInput.addValue(movie);
     const searchSubmit = NavBar.searchBar.mag;
     await searchSubmit.click()
+});
+
+When(/^on the results page select "(The Batman)"$/, async (movie) => {
+    const result =  MovieList.rowHyperlink();
+    const text = await result.getText();
+    // expect(text).toMatch(movie);
+    await result.click();
 });
 
 Then(/^I should see the category dropdown now matches "(All|Titles|TV Episodes)"$/, 
