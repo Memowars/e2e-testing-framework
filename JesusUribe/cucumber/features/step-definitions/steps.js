@@ -82,7 +82,7 @@ Then(/^I click on play trailer and a new page opens/, async () => {
 	await trailerPlay.click();
 })
 
-Then(/^Validate an ad is running/, async () => {
+Then(/^check that an ad is running/, async () => {
 	const video = TrailerPage.video;
 	// expect(video.getState()).toBe("playing");
 	expect(jwplayer().getState()).toBe("playing");
