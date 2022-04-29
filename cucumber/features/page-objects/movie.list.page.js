@@ -1,7 +1,7 @@
 class MovieList { 
     
-    constructor() {
-        this.parentLocator = `.findSection .findList tr`;
+    constructor(tableId = 1) {
+        this.parentLocator = `.findSection:nth-of-child(${tableId})`;
     }
 
     get bottomLink() {
@@ -9,8 +9,10 @@ class MovieList {
     }
 
     rowHyperlink() {
-        return $(this.parentLocator).$(`.result_text`);
+        // multiple chained element queries, thanks to Luis Roberto Peña
+        return $(`.result_text`).$(`a`);
     }
+    
 }
 
 module.exports = new MovieList;
