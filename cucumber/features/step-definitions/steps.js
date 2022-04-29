@@ -26,7 +26,7 @@ When(/^on the navbar I search "(The Batman)"$/, async (movie) => {
 When(/^on the results page select "(The Batman)"$/, async (movie) => {
     const aElement = MovieList.rowHyperlink();
     await aElement.click();
-    await browser.pause(1500);
+    // await browser.pause(1500); // wait 1.5s before ending step, usefull before coding the next step
 });
 
 When(/^on the details page I verify the Director as "(Matt Reeves)"$/, async (director) => {
